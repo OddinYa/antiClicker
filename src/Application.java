@@ -8,14 +8,16 @@ public class Application extends JPanel implements KeyListener {
     private Robot robot;
     private boolean flag = false;
     private int i = 0;
+    private JFrame frame;
 
 
-    public Application() {
+    public Application(JFrame frame) {
         try {
             robot = new Robot();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        this.frame = frame;
     }
 
 
@@ -35,16 +37,18 @@ public class Application extends JPanel implements KeyListener {
     private void loop() {
         while (!flag) {
 
-             robot.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
-             robot.delay(2);
-             robot.mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
-             i++;
+            robot.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
+            robot.delay(2);
+            robot.mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
+            i++;
 
-            if(i>=1000){
+            if (i >= 1000) {
                 break;
             }
 
-        } i = 0;
+        }
+        frame.setVisible(true);
+        i = 0;
 
 
     }
