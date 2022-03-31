@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 public class Application extends JPanel implements KeyListener {
     private Robot robot;
     private boolean flag = false;
+    private int i = 0;
 
 
     public Application() {
@@ -33,12 +34,17 @@ public class Application extends JPanel implements KeyListener {
 
     private void loop() {
         while (!flag) {
-            robot.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
-            robot.delay(100);
-            robot.mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
 
+             robot.mousePress(KeyEvent.BUTTON1_DOWN_MASK);
+             robot.delay(2);
+             robot.mouseRelease(KeyEvent.BUTTON1_DOWN_MASK);
+             i++;
 
-        }
+            if(i>=1000){
+                break;
+            }
+
+        } i = 0;
 
 
     }
@@ -55,4 +61,3 @@ public class Application extends JPanel implements KeyListener {
     }
 
 }
-
